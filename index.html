@@ -39,37 +39,223 @@
         <ul></ul>
       </nav>
       <section>
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <p><img src="https://pypip.in/v/geocoder/badge.png" alt="Version"><img src="https://pypip.in/d/geocoder/badge.png" alt="Downloads"><img src="https://travis-ci.org/DenisCarriere/geocoder.png?branch=master" alt="Build"></p>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<p>A simplistic Python Geocoder.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>Geocoder is an Apache2 Licensed Geocoding library, written in Python.</p>
+
+<pre><code>&gt;&gt;&gt; import geocoder
+&gt;&gt;&gt; g = geocoder.google('Moscone Center')
+&gt;&gt;&gt; g.latlng
+(37.784173, -122.401557)
+&gt;&gt;&gt; g.city
+'San Francisco'
+...
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+
+<p>You can install, upgrade, uninstall Geocoder with these commands:</p>
+
+<pre><code>$ pip install geocoder
+$ pip install --upgrade geocoder
+$ pip uninstall geocoder
+</code></pre>
+
+<h2>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+<pre><code>&gt;&gt;&gt; import geocoder
+&gt;&gt;&gt; g = geocoder.google('1600 Amphitheatre Pkwy, Mountain View, CA')
+&gt;&gt;&gt; g.latlng
+(37.784173, -122.401557)
+&gt;&gt;&gt; g.postal
+'94043'
+&gt;&gt;&gt; g.city
+'Mountain View'
+&gt;&gt;&gt; g.country
+'United States'
+...
+</code></pre>
 
 <h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+<a name="getting-json" class="anchor" href="#getting-json"><span class="octicon octicon-link"></span></a>Getting JSON</h3>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<pre><code>&gt;&gt;&gt; g = geocoder.google('1600 Amphitheatre Parkway, Mountain View, CA')
+&gt;&gt;&gt; g.json
+{'address': '1600 Amphitheatre Parkway, Mountain View, CA 94043, USA',
+'bbox': {'northeast': {'lat': 37.4233474802915, 'lng': -122.0826054197085},
+'southwest': {'lat': 37.4206495197085, 'lng': -122.0853033802915}},
+'city': 'Mountain View',
+'country': 'United States',
+'lat': 37.4219985,
+'lng': -122.0839544,
+'location': '1600 Amphitheatre Parkway, Mountain View, CA 94043, USA',
+'ok': True,
+'postal': '94043',
+'provider': 'Google',
+'quality': 'ROOFTOP',
+'status': 'OK'}
+...
+</code></pre>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="distance-calculator" class="anchor" href="#distance-calculator"><span class="octicon octicon-link"></span></a>Distance Calculator</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+<p>Using the Great Circle distance by using the Harversine formula.</p>
+
+<pre><code>&gt;&gt;&gt; d = geocoder.distance('Ottawa', 'Toronto')
+&gt;&gt;&gt; d.km
+351.902264779
+&gt;&gt;&gt; d.miles
+218.672067333
+...
+</code></pre>
+
+<p>Different ways to use the Distance calculator, you can input the locations 
+by using a tuple (lat, lng) or a dictionary with lat/lng keys.</p>
+
+<pre><code>&gt;&gt;&gt; import geocoder
+&gt;&gt;&gt; ottawa = (45.4215296, -75.69719309999999)
+&gt;&gt;&gt; toronto = {'lat':43.653226, 'lng':-79.3831843}
+&gt;&gt;&gt; d = geocoder.distance(ottawa, toronto)
+&gt;&gt;&gt; d.meters
+351902
+...
+</code></pre>
+
+<p>Official Docs - <a href="http://en.wikipedia.org/wiki/Haversine_formula">http://en.wikipedia.org/wiki/Haversine_formula</a></p>
 
 <h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+<a name="reverse-geocoding" class="anchor" href="#reverse-geocoding"><span class="octicon octicon-link"></span></a>Reverse Geocoding</h3>
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p>Using Google's reverse geocoding API, you are able to
+input a set of coordinates and geocode it's location.</p>
+
+<pre><code>&gt;&gt;&gt; latlng = (48.85837, 2.2944813)
+&gt;&gt;&gt; g = geocoder.reverse(latlng)
+&lt;[OK] Geocoder Google [Eiffel Tower, Paris, France]&gt;
+...
+</code></pre>
+
+<p>Official Docs - <a href="https://developers.google.com/maps/documentation/geocoding">https://developers.google.com/maps/documentation/geocoding</a></p>
+
+<h3>
+<a name="bounding-box-extent" class="anchor" href="#bounding-box-extent"><span class="octicon octicon-link"></span></a>Bounding Box (Extent)</h3>
+
+<pre><code>&gt;&gt;&gt; g = geocoder.osm('1600 Amphitheatre Pkwy, Mountain View, CA')
+&gt;&gt;&gt; g.bbox
+{'northeast': {'lat': 37.4233474802915, 'lng': -122.0826054197085},
+'southwest': {'lat': 37.4206495197085, 'lng': -122.0853033802915}}
+&gt;&gt;&gt; g.southwest
+{'lat': 37.4206495197085, 'lng': -122.0853033802915}
+&gt;&gt;&gt; g.south
+37.4206495197085
+...
+</code></pre>
+
+<h3>
+<a name="geocoding-ip-address" class="anchor" href="#geocoding-ip-address"><span class="octicon octicon-link"></span></a>Geocoding IP Address</h3>
+
+<p>Retrieves geocoding data from MaxMind's GeoIP2 services</p>
+
+<pre><code>&gt;&gt;&gt; g = geocoder.ip('74.125.226.99')
+&gt;&gt;&gt; g.address
+'Mountain View, California United States'
+&gt;&gt;&gt; g.latlng
+(37.4192, -122.0574)
+</code></pre>
+
+<p>Geocoding your current IP address, simply use <strong>'me'</strong> as the input.</p>
+
+<pre><code>&gt;&gt;&gt; g = geocoder.ip('me')
+&gt;&gt;&gt; g.address
+'Ottawa, Ontario Canada'
+&gt;&gt;&gt; g.latlng
+(45.4805, -75.5237)
+...
+</code></pre>
+
+<p>Official Docs - <a href="http://www.maxmind.com/en/web_services">http://www.maxmind.com/en/web_services</a></p>
+
+<h3>
+<a name="population-data-from-city" class="anchor" href="#population-data-from-city"><span class="octicon octicon-link"></span></a>Population Data from City</h3>
+
+<p>Retrieves population data from Geonames's Web Service API.</p>
+
+<pre><code>&gt;&gt;&gt; pop = geocoder.population('Springfield, Virginia')
+&gt;&gt;&gt; pop
+30484
+...
+</code></pre>
+
+<p>Official Docs - <a href="http://www.geonames.org/export/web-services.html">http://www.geonames.org/export/web-services.html</a></p>
+
+<h3>
+<a name="geocoder-attributes" class="anchor" href="#geocoder-attributes"><span class="octicon octicon-link"></span></a>Geocoder Attributes</h3>
+
+<ul>
+<li>address</li>
+<li>location</li>
+<li>city</li>
+<li>country</li>
+<li>postal</li>
+<li>quality</li>
+<li>status</li>
+<li>population (integer)</li>
+<li>ok (boolean)</li>
+<li>x, lng, longitude (float)</li>
+<li>y, lat, latitude (float)</li>
+<li>latlng, xy (tuple)</li>
+<li>bbox {southwest, northeast}</li>
+<li>southwest {lat, lng}</li>
+<li>northeast {lat, lng}</li>
+<li>south, west, north, east (float)</li>
+</ul><h3>
+<a name="distance-attributes" class="anchor" href="#distance-attributes"><span class="octicon octicon-link"></span></a>Distance Attributes</h3>
+
+<ul>
+<li>km (float)</li>
+<li>miles (float)</li>
+<li>meters (integer)</li>
+<li>feet (integer)</li>
+</ul><h3>
+<a name="geocoding-providers" class="anchor" href="#geocoding-providers"><span class="octicon octicon-link"></span></a>Geocoding Providers</h3>
+
+<pre><code>Priority Geocoders
+&gt;&gt;&gt; geocoder.google(&lt;location&gt;)
+&gt;&gt;&gt; geocoder.reverse(&lt;latlng&gt;)
+&gt;&gt;&gt; geocoder.ip(&lt;ip&gt;)
+
+Secondary Geocoders
+&gt;&gt;&gt; geocoder.osm(&lt;location&gt;)
+&gt;&gt;&gt; geocoder.mapquest(&lt;location&gt;)
+&gt;&gt;&gt; geocoder.arcgis(&lt;location&gt;)
+&gt;&gt;&gt; geocoder.geonames(&lt;location&gt;, username='XXXXX')
+&gt;&gt;&gt; geocoder.bing(&lt;location&gt;, key='XXXXX')
+&gt;&gt;&gt; geocoder.nokia(&lt;location&gt;, app_id='XXXXX', app_code='XXXXX')
+&gt;&gt;&gt; geocoder.tomtom(&lt;location&gt;, key='XXXXX')
+...
+</code></pre>
+
+<h3>
+<a name="command-line" class="anchor" href="#command-line"><span class="octicon octicon-link"></span></a>Command Line</h3>
+
+<pre><code>$ geocoder Ottawa
+45.4215296, -75.69719309999999
+</code></pre>
+
+<p>More interaction with command line will soon follow. </p>
+
+<h3>
+<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h3>
+
+<p>Please feel free to give any feedback on this module, it is still in it's early stages of production. If you have any questions about GIS &amp; Python you can contact <a href="https://github.com/DenisCarriere" class="user-mention">@DenisCarriere</a> for any questions.</p>
       </section>
       <footer>
         <p>Project maintained by <a href="https://github.com/DenisCarriere">DenisCarriere</a></p>
