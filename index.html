@@ -39,7 +39,10 @@
         <ul></ul>
       </nav>
       <section>
-        <p><img src="https://pypip.in/v/geocoder/badge.png" alt="Version"><img src="https://pypip.in/d/geocoder/badge.png" alt="Downloads"><img src="https://travis-ci.org/DenisCarriere/geocoder.png?branch=master" alt="Build"></p>
+        <h1>
+<a name="python-geocoder" class="anchor" href="#python-geocoder"><span class="octicon octicon-link"></span></a>Python Geocoder</h1>
+
+<p><img src="https://pypip.in/v/geocoder/badge.png" alt="Version"><img src="https://pypip.in/d/geocoder/badge.png" alt="Downloads"><img src="https://travis-ci.org/DenisCarriere/geocoder.png?branch=master" alt="Build"></p>
 
 <p>A simplistic Python Geocoder.</p>
 
@@ -54,8 +57,8 @@
 ...
 </code></pre>
 
-<h3>
-<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h3>
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
 
 <p>You can install, upgrade, uninstall Geocoder with these commands:</p>
 
@@ -64,11 +67,11 @@ $ pip install --upgrade geocoder
 $ pip uninstall geocoder
 </code></pre>
 
-<h2>
-<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h2>
+<h1>
+<a name="documentation" class="anchor" href="#documentation"><span class="octicon octicon-link"></span></a>Documentation</h1>
 
-<h3>
-<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h3>
+<h2>
+<a name="basic-usage" class="anchor" href="#basic-usage"><span class="octicon octicon-link"></span></a>Basic Usage</h2>
 
 <pre><code>&gt;&gt;&gt; import geocoder
 &gt;&gt;&gt; g = geocoder.google('1600 Amphitheatre Pkwy, Mountain View, CA')
@@ -83,8 +86,8 @@ $ pip uninstall geocoder
 ...
 </code></pre>
 
-<h3>
-<a name="getting-json" class="anchor" href="#getting-json"><span class="octicon octicon-link"></span></a>Getting JSON</h3>
+<h2>
+<a name="getting-json" class="anchor" href="#getting-json"><span class="octicon octicon-link"></span></a>Getting JSON</h2>
 
 <pre><code>&gt;&gt;&gt; g = geocoder.google('1600 Amphitheatre Parkway, Mountain View, CA')
 &gt;&gt;&gt; g.json
@@ -104,8 +107,8 @@ $ pip uninstall geocoder
 ...
 </code></pre>
 
-<h3>
-<a name="distance-calculator" class="anchor" href="#distance-calculator"><span class="octicon octicon-link"></span></a>Distance Calculator</h3>
+<h2>
+<a name="distance-calculator" class="anchor" href="#distance-calculator"><span class="octicon octicon-link"></span></a>Distance Calculator</h2>
 
 <p>Using the Great Circle distance by using the Harversine formula.</p>
 
@@ -131,8 +134,8 @@ by using a tuple (lat, lng) or a dictionary with lat/lng keys.</p>
 
 <p>Official Docs - <a href="http://en.wikipedia.org/wiki/Haversine_formula">http://en.wikipedia.org/wiki/Haversine_formula</a></p>
 
-<h3>
-<a name="reverse-geocoding" class="anchor" href="#reverse-geocoding"><span class="octicon octicon-link"></span></a>Reverse Geocoding</h3>
+<h2>
+<a name="reverse-geocoding" class="anchor" href="#reverse-geocoding"><span class="octicon octicon-link"></span></a>Reverse Geocoding</h2>
 
 <p>Using Google's reverse geocoding API, you are able to
 input a set of coordinates and geocode it's location.</p>
@@ -145,8 +148,8 @@ input a set of coordinates and geocode it's location.</p>
 
 <p>Official Docs - <a href="https://developers.google.com/maps/documentation/geocoding">https://developers.google.com/maps/documentation/geocoding</a></p>
 
-<h3>
-<a name="bounding-box-extent" class="anchor" href="#bounding-box-extent"><span class="octicon octicon-link"></span></a>Bounding Box (Extent)</h3>
+<h2>
+<a name="bounding-box-extent" class="anchor" href="#bounding-box-extent"><span class="octicon octicon-link"></span></a>Bounding Box (Extent)</h2>
 
 <pre><code>&gt;&gt;&gt; g = geocoder.osm('1600 Amphitheatre Pkwy, Mountain View, CA')
 &gt;&gt;&gt; g.bbox
@@ -159,8 +162,8 @@ input a set of coordinates and geocode it's location.</p>
 ...
 </code></pre>
 
-<h3>
-<a name="geocoding-ip-address" class="anchor" href="#geocoding-ip-address"><span class="octicon octicon-link"></span></a>Geocoding IP Address</h3>
+<h2>
+<a name="geocoding-ip-address" class="anchor" href="#geocoding-ip-address"><span class="octicon octicon-link"></span></a>Geocoding IP Address</h2>
 
 <p>Retrieves geocoding data from MaxMind's GeoIP2 services</p>
 
@@ -183,8 +186,8 @@ input a set of coordinates and geocode it's location.</p>
 
 <p>Official Docs - <a href="http://www.maxmind.com/en/web_services">http://www.maxmind.com/en/web_services</a></p>
 
-<h3>
-<a name="population-data-from-city" class="anchor" href="#population-data-from-city"><span class="octicon octicon-link"></span></a>Population Data from City</h3>
+<h2>
+<a name="population-data-from-city" class="anchor" href="#population-data-from-city"><span class="octicon octicon-link"></span></a>Population Data from City</h2>
 
 <p>Retrieves population data from Geonames's Web Service API.</p>
 
@@ -196,8 +199,8 @@ input a set of coordinates and geocode it's location.</p>
 
 <p>Official Docs - <a href="http://www.geonames.org/export/web-services.html">http://www.geonames.org/export/web-services.html</a></p>
 
-<h3>
-<a name="geocoder-attributes" class="anchor" href="#geocoder-attributes"><span class="octicon octicon-link"></span></a>Geocoder Attributes</h3>
+<h2>
+<a name="geocoder-attributes" class="anchor" href="#geocoder-attributes"><span class="octicon octicon-link"></span></a>Geocoder Attributes</h2>
 
 <ul>
 <li>address</li>
@@ -216,16 +219,16 @@ input a set of coordinates and geocode it's location.</p>
 <li>southwest {lat, lng}</li>
 <li>northeast {lat, lng}</li>
 <li>south, west, north, east (float)</li>
-</ul><h3>
-<a name="distance-attributes" class="anchor" href="#distance-attributes"><span class="octicon octicon-link"></span></a>Distance Attributes</h3>
+</ul><h2>
+<a name="distance-attributes" class="anchor" href="#distance-attributes"><span class="octicon octicon-link"></span></a>Distance Attributes</h2>
 
 <ul>
 <li>km (float)</li>
 <li>miles (float)</li>
 <li>meters (integer)</li>
 <li>feet (integer)</li>
-</ul><h3>
-<a name="geocoding-providers" class="anchor" href="#geocoding-providers"><span class="octicon octicon-link"></span></a>Geocoding Providers</h3>
+</ul><h2>
+<a name="geocoding-providers" class="anchor" href="#geocoding-providers"><span class="octicon octicon-link"></span></a>Geocoding Providers</h2>
 
 <pre><code>Priority Geocoders
 &gt;&gt;&gt; geocoder.google(&lt;location&gt;)
@@ -243,8 +246,8 @@ Secondary Geocoders
 ...
 </code></pre>
 
-<h3>
-<a name="command-line" class="anchor" href="#command-line"><span class="octicon octicon-link"></span></a>Command Line</h3>
+<h2>
+<a name="command-line" class="anchor" href="#command-line"><span class="octicon octicon-link"></span></a>Command Line</h2>
 
 <pre><code>$ geocoder Ottawa
 45.4215296, -75.69719309999999
@@ -252,8 +255,8 @@ Secondary Geocoders
 
 <p>More interaction with command line will soon follow. </p>
 
-<h3>
-<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h3>
+<h1>
+<a name="contribute" class="anchor" href="#contribute"><span class="octicon octicon-link"></span></a>Contribute</h1>
 
 <p>Please feel free to give any feedback on this module, it is still in it's early stages of production. If you have any questions about GIS &amp; Python you can contact <a href="https://github.com/DenisCarriere" class="user-mention">@DenisCarriere</a> for any questions.</p>
       </section>
